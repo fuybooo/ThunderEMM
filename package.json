@@ -1,0 +1,17 @@
+{
+  "name": "my-angular-thundersoft",
+  "version": "1.0.0",
+  "description": "this is my angular project",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "fuyb",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-webserver": "^0.9.1",
+    "opn": "^4.0.2"
+  }
+}
