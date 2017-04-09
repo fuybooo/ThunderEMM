@@ -1,0 +1,30 @@
+[
+    {
+        "id": "1",
+        "username": "fuyb",
+        "email": "fuybooo@qq.com",
+        "password": "111111",
+        "phoneNum": "13521892712"
+    },
+    {
+        "id": "2",
+        "username": "fuyb2",
+        "email": "fuybooo@qq.com",
+        "password": "111111",
+        "phoneNum": "13521892713"
+    },
+    {
+        "id": "3",
+        "username": "fuyb3",
+        "email": "fuybooo@qq.com",
+        "password": "111111",
+        "phoneNum": "13521892714"
+    },
+    {
+        "id": "4",
+        "username": "fuyb4",
+        "email": "fuybooo@qq.com",
+        "password": "111111",
+        "phoneNum": "13521892715"
+    }
+]

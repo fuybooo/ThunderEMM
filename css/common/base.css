@@ -59,6 +59,12 @@ fieldset[disabled] .btn {
 }
 
 /* css tools */
+/*  对于数量单位有如下规则   */
+/*  1.数字单位为px，如w20表示width: 20px;  */
+/*  2.下划线代表百分比，如w_90表示width: 90%;  */
+/*  3.中划线代表负值，如w-100表示width: -100px;  */
+/*  4.综合：w-_100表示width: -100%;  */
+/*  5.特例：因为比较常用的关系，w表示width: 100%;等等  */
 
 .f14{font-size: 14px;}
 .f16{font-size: 16px;}
@@ -68,12 +74,7 @@ fieldset[disabled] .btn {
 .tal{text-align: left;}
 .tar{text-align: right;}
 
-/*  对于数量单位有如下规则   */
-/*  1.数字单位为px，如w20表示width: 20px;  */
-/*  2.下划线代表百分比，如w_90表示width: 90%;  */
-/*  3.中划线代表负值，如w-100表示width: -100px;  */
-/*  4.综合：w-_100表示width: -100%;  */
-/*  5.特例：因为比较常用的关系，w表示width: 100%;等等  */
+
 .w{width: 100%;}
 .w18{width: 18px;}
 .w260{width: 260px;}
@@ -110,6 +111,7 @@ fieldset[disabled] .btn {
 .mb{}
 
 .ml100{margin-left: 100px;}
+.ml356{margin-left: 356px;}
 
 
 .pt40{padding-top: 40px;}
@@ -131,6 +133,9 @@ fieldset[disabled] .btn {
 .m0a{margin: 0 auto;}
 
 .c-f{color: #fff;}
+.c-f00{color: #f00;}
 
 /* 解决checkbox与字体不同高的问题 */
 .vat{vertical-align: top;}
+
+.cp{cursor: pointer;}

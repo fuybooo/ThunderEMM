@@ -74,13 +74,19 @@
     };
     var getJson = function(url, callback){
         getDataByAjax({url: url}, callback);
-    }
-    
-    
+    };
+    var upperCaseFirstCharacter = function(str){
+        return str.split('').shift().toUpperCase() + str.slice(1);
+    };
+    var isEmptyObject = function(obj){
+        return JSON.stringify(obj) === '{}';
+    };
     window['tsUtils'] = {
         ajax : ajax,
         getDataByAjax : getDataByAjax,
         getHtml : getHtml,
-        getJson : getJson
+        getJson : getJson,
+        upperCaseFirstCharacter : upperCaseFirstCharacter,
+        isEmptyObject : isEmptyObject
     };
 })(window, jQuery);
