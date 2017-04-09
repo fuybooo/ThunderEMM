@@ -11,7 +11,9 @@
             
             // 控制器
             loginModule.controller('LoginController', function($scope){
-                
+                $scope.loginInfo = {};
+                $scope.loginInfo.username = 'fuyb';// 测试数据
+                $scope.loginInfo.password = '111111';// 测试数据
                 $scope.isLoginFailTipShow = false; // 默认不显示loginFailTip
                 $scope.isUsernameTipShow = false; // 默认不显示usernameTip
                 $scope.isPasswordTipShow = false; // 默认不显示passwordtip
@@ -96,7 +98,7 @@
                                 $scope.loginFailTip = msgTip.loginFail;
                             }else{
                                 localStorage.setItem('loginInfo', loginInfoJson);
-                                window.location.href = 'http://www.baidu.com';
+                                window.location.href = 'main.html';
                             }
                         });
                     }

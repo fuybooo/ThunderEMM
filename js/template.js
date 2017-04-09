@@ -1,3 +1,3 @@
-(function(window, $, undefined){
+define([], function(require, exports, module){
     
-})(window, jQuery);
+});
