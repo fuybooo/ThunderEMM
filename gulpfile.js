@@ -14,22 +14,6 @@ gulp.task('watch', function(){
         'css/**/*.css',
         'tpls/**/*.html',
         '*.html',
-        'img/**/*.*',
-        'json/**/*.json'
     ]).on('change', browserSync.reload);
 });
-gulp.task('serve', function(){
-//  gulp.src('./')
-//      .pipe($.webserver({
-//          port: '80',
-//          host: '127.0.0.1',
-//          liveload: true,
-//          directoryListing: {
-//              path: './',
-//              enable: true
-//          }
-//      }));
-//  require('opn')('http://localhost/index.html');
-});
 gulp.task('default', ['watch']);
-//gulp.task('default', ['watch','serve']);

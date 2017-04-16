@@ -35,7 +35,8 @@
 .login-input-img.password{
     background: url(../../img/login/iconfont-lock.png);
 }
-.login-forgive-password:hover{
+.login-forgive-password:hover,
+.login-regist:hover{
     color: #006DCC;
 }
 .login-tip{

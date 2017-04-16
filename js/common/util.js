@@ -1,4 +1,7 @@
-(function(window, $, undefined){
+define(function(require){
+    var $ = require('jquery');
+    
+//  var cache = {};
     /**
      * 扩展jquery的ajax方法
      */
@@ -65,15 +68,41 @@
         };
         ajax($.extend({
             success: function(data){
+//              sessionStorage.setItem(param.url + '__static__', data);
                 callback(data);
             }
         }, param));
     };
-    var getHtml = function(url, callback){
-        getDataByAjax({url: url, dataType: 'html'}, callback);
-    };
-    var getJson = function(url, callback){
-        getDataByAjax({url: url}, callback);
+    var get = function(path, callback, isAbsolute){
+        if(typeof path !== 'string'){
+            throw new Error('文件路径不合法！');
+        }
+        var isAbsolute = arguments[2];
+        var url = '';
+        var dataType = '';
+        var sufix = path.slice(-5);
+        
+        if(sufix === '.html'){
+            url = 'tpls/' + path;
+            dataType = 'html';
+        }else if(sufix === '.json'){
+            url = 'json/' + path;
+            dataType = 'json';
+        }else{
+            // 默认为html
+            url = 'tpls/' + path + '.html';
+            dataType = 'html';
+        }
+        
+        if(isAbsolute){
+            url = path;
+        }
+//      var data = sessionStorage.getItem(url + '__static__');
+//      if(data){
+//          callback(data);
+//      }else{
+            getDataByAjax({url: url, dataType: dataType, cache: false}, callback);
+//      }
     };
     var upperCaseFirstCharacter = function(str){
         return str.split('').shift().toUpperCase() + str.slice(1);
@@ -81,12 +110,12 @@
     var isEmptyObject = function(obj){
         return JSON.stringify(obj) === '{}';
     };
-    window['tsUtils'] = {
+    
+    return {
         ajax : ajax,
         getDataByAjax : getDataByAjax,
-        getHtml : getHtml,
-        getJson : getJson,
+        get : get,
         upperCaseFirstCharacter : upperCaseFirstCharacter,
         isEmptyObject : isEmptyObject
     };
-})(window, jQuery);
+});

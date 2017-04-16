@@ -22,7 +22,10 @@ require.config({
         'ECharts':'lib/js/echarts-all',
         'bootstrap-datetimepicker':'lib/js/bootstrap-datetimepicker',
         'bootstrap-datetimepicker-zh-CN':'lib/js/bootstrap-datetimepicker.zh-CN',
+        'popupwin': 'lib/popupwin/popupwin',
         
+        'util': 'js/common/util',
+        'login': 'js/login/login',
         'app': 'js/app',
         'router': 'js/router',
         'globalDataService': 'js/common/service/globalDataService'
@@ -116,41 +119,52 @@ require.config({
     }
 });
 
-require(
-    [
-        // 库文件
-        'angular',
-        'jquery',
-        'underscore',
+/**
+ * 根据判断pathname的值执行不同的require
+ */
+var pathname = window.location.pathname;
+if(pathname === '/' || pathname === '/index.html'){
+    // 此时执行登录页面的require
+    require(['login'],function (){});
+}else{
+    // 此时执行app的require
+    require(
+        [
+            // 库文件
+            'angular',
+            'jquery',
+            'underscore',
+    
+            'angular-async-loader',
+            'angular-ui-load',
+            'angular-ui-router',
+            'angular-animate',
+            'angular-sanitize',
+            'angular-touch',
+            'angular-bootstrap',
+            'restangular',
+    
+            'bootstrap',
+            'zTree',
+            'ECharts',
+    
+            'bootstrap-table',
+            'bootstrap-select',
+            'bootstrap-datetimepicker',
+            'bootstrap-table-zh-CN',
+            'bootstrap-datetimepicker-zh-CN',
+            
+            'app',
+            'globalDataService',
+            'router'
+        ],
+        function (angular) {
+            angular.element(document).ready(function () {
+                angular.bootstrap(document,['app']);
+            });
+        }
+    );
+}
 
-        'angular-async-loader',
-        'angular-ui-load',
-        'angular-ui-router',
-        'angular-animate',
-        'angular-sanitize',
-        'angular-touch',
-        'angular-bootstrap',
-        'restangular',
-
-        'bootstrap',
-        'zTree',
-        'ECharts',
-
-        'bootstrap-table',
-        'bootstrap-select',
-        'bootstrap-datetimepicker',
-        'bootstrap-table-zh-CN',
-        'bootstrap-datetimepicker-zh-CN',
-        
-        'app',
-        'globalDataService',
-        'router'
-    ],
-    function (angular) {
-        angular.element(document).ready(function () {
-            angular.bootstrap(document,['app']);
-        });
-    }
-);
 
 
